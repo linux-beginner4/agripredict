@@ -1,0 +1,178 @@
+/* AgriPredict CI — style mobile-first */
+:root {
+    --vert: #2e7d32;
+    --vert-fonce: #1b5e20;
+    --vert-clair: #e8f5e9;
+    --orange: #ef6c00;
+    --rouge: #c62828;
+    --gris: #607d8b;
+    --fond: #f5f7f5;
+    --carte: #ffffff;
+    --texte: #1f2a1f;
+    --rayon: 12px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--fond);
+    color: var(--texte);
+    line-height: 1.5;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding: .75rem 1rem;
+    background: var(--vert);
+    color: #fff;
+}
+.topbar a { color: #fff; text-decoration: none; }
+.brand { font-weight: 700; font-size: 1.15rem; }
+.brand span { color: #ffcc80; }
+.topbar nav a { margin-left: 1rem; font-size: .95rem; }
+
+.container { max-width: 720px; margin: 1rem auto; padding: 0 1rem 3rem; }
+
+.card {
+    background: var(--carte);
+    border-radius: var(--rayon);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
+.card h1, .card h2 { margin-top: 0; }
+
+label { display: block; margin: .8rem 0 .25rem; font-weight: 600; font-size: .95rem; }
+input, select, textarea {
+    width: 100%;
+    padding: .7rem .8rem;
+    border: 1px solid #c5d0c5;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #fff;
+}
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--vert);
+    border-color: var(--vert);
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    margin-top: 1.2rem;
+    padding: .85rem 1rem;
+    border: 0;
+    border-radius: 8px;
+    background: var(--vert);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+.btn:hover { background: var(--vert-fonce); }
+.btn-secondaire { background: var(--gris); }
+
+.alert { padding: .75rem 1rem; border-radius: 8px; margin-bottom: 1rem; }
+.alert-erreur  { background: #ffebee; color: var(--rouge); }
+.alert-succes  { background: var(--vert-clair); color: var(--vert-fonce); }
+.alert-info    { background: #fff3e0; color: var(--orange); }
+
+.muted { color: var(--gris); font-size: .9rem; }
+.centre { text-align: center; }
+
+.footer { text-align: center; padding: 1.5rem 1rem; color: var(--gris); font-size: .85rem; }
+
+/* Indicateurs */
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+.stat { background: var(--vert-clair); border-radius: 10px; padding: .75rem; text-align: center; }
+.stat strong { display: block; font-size: 1.35rem; color: var(--vert-fonce); }
+.stat span { font-size: .8rem; color: var(--gris); }
+
+/* Tableaux */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+th, td { padding: .5rem .4rem; text-align: right; border-bottom: 1px solid #e3e8e3; }
+th:first-child, td:first-child { text-align: left; }
+th { color: var(--gris); font-weight: 600; font-size: .8rem; }
+
+/* Liste de lots */
+.lot-link { display: block; padding: .8rem 0; border-bottom: 1px solid #e3e8e3; color: inherit; text-decoration: none; }
+.badge-demo { background: #fff3e0; color: var(--orange); font-size: .7rem; padding: .1rem .45rem; border-radius: 99px; margin-left: .3rem; }
+
+@media (min-width: 600px) {
+    .stats { grid-template-columns: repeat(4, 1fr); }
+    .stats-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Graphiques et finances */
+.chart-box { position: relative; height: 240px; }
+.chart-box-court { height: 220px; }
+.sous-titre { font-size: .95rem; color: var(--gris); margin: 1.2rem 0 .5rem; }
+.stats-3 { grid-template-columns: 1fr; }
+.stats-3 .stat strong { font-size: 1.15rem; }
+.pos { color: var(--vert-fonce) !important; }
+.neg { color: var(--rouge) !important; }
+
+/* Alertes */
+.alerte { border-left: 4px solid var(--gris); background: #fafafa; border-radius: 8px; padding: .6rem .8rem; margin-bottom: .6rem; }
+.alerte p { margin: .25rem 0 0; }
+.alerte-tete { font-size: .85rem; color: var(--gris); }
+.alerte-tete a { color: inherit; }
+.alerte-critique { border-left-color: var(--rouge); background: #ffebee; }
+.alerte-attention { border-left-color: var(--orange); background: #fff3e0; }
+.alerte-nouvelle p { font-weight: 600; }
+.badge-niveau { font-size: .7rem; font-weight: 700; text-transform: uppercase; padding: .1rem .5rem; border-radius: 99px; color: #fff; background: var(--gris); }
+.badge-critique { background: var(--rouge); }
+.badge-attention { background: var(--orange); }
+/* Opérations financières */
+.btn-row { display: flex; gap: .6rem; }
+.btn-row .btn { flex: 1; min-width: 0; margin-top: 1rem; }
+.op { display: flex; justify-content: space-between; align-items: center; gap: .6rem; padding: .6rem 0; border-bottom: 1px solid #e3e8e3; font-size: .92rem; }
+.op-droite { display: flex; align-items: center; gap: .4rem; white-space: nowrap; font-weight: 600; }
+.op-droite form { margin: 0; }
+.btn-suppr { background: none; border: 0; color: var(--gris); font-size: 1rem; cursor: pointer; padding: .25rem .4rem; }
+.btn-suppr:hover { color: var(--rouge); }
+/* Orientation sanitaire */
+.groupe-symptomes { margin-top: 1.1rem; }
+.groupe-symptomes h3 { font-size: .95rem; color: var(--gris); margin: 0 0 .4rem; }
+.symptome { display: flex; align-items: center; gap: .7rem; padding: .7rem .8rem; margin: 0 0 .4rem; border: 1px solid #c5d0c5; border-radius: 8px; background: #fff; font-weight: 500; cursor: pointer; }
+.symptome input { width: auto; margin: 0; transform: scale(1.3); }
+.symptome:has(input:checked) { border-color: var(--vert); background: var(--vert-clair); }
+.urgence { padding: .9rem 1rem; border-radius: 10px; margin-bottom: 1rem; }
+.urgence ul { margin: .4rem 0 .4rem 1.1rem; padding: 0; }
+.urgence p { margin: .4rem 0 0; }
+.urgence-elevee { background: #ffebee; border-left: 5px solid var(--rouge); }
+.urgence-surveiller { background: #fff3e0; border-left: 5px solid var(--orange); }
+.maladie { border: 1px solid #e3e8e3; border-left: 5px solid var(--orange); border-radius: 10px; padding: .9rem 1rem; margin-bottom: .8rem; }
+.maladie-grave, .maladie-critique { border-left-color: var(--rouge); }
+.maladie h3 { margin: 0 0 .4rem; }
+.maladie p { margin: .4rem 0 0; }
+.puces { display: flex; flex-wrap: wrap; gap: .35rem; }
+.badge-isole { background: #5d4037; }
+.btn-appel { background: var(--rouge); margin-top: .6rem; }
+.btn-appel:hover { background: #8e0000; }
+
+/* Vaccinations */
+.vaccin { display: flex; justify-content: space-between; align-items: center; gap: .6rem; padding: .65rem .7rem; margin-bottom: .5rem; border-radius: 8px; border-left: 4px solid var(--gris); background: #fafafa; font-size: .92rem; }
+.vaccin-retard  { border-left-color: var(--rouge);  background: #ffebee; }
+.vaccin-bientot { border-left-color: var(--orange); background: #fff3e0; }
+.vaccin-fait    { border-left-color: var(--vert);   background: var(--vert-clair); }
+.vaccin-actions { display: flex; align-items: center; gap: .3rem; white-space: nowrap; }
+.vaccin-actions form { margin: 0; }
+.btn-mini { display: inline-block; padding: .4rem .75rem; border: 0; border-radius: 6px; background: var(--vert); color: #fff; font-size: .85rem; font-weight: 600; text-decoration: none; cursor: pointer; }
+.btn-mini.secondaire { background: var(--gris); }
+.badge-fait { background: var(--vert); }
+.note-methode { font-size: .82rem; color: var(--gris); margin: 1rem 0 0; }
+.pastille { background: var(--orange); color: #fff; border-radius: 99px; font-size: .75rem; padding: 0 .45rem; margin-left: .2rem; }
+
+@media (min-width: 600px) {
+    .btn { width: auto; min-width: 200px; }
+}

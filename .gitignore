@@ -1,0 +1,9 @@
+# Fichiers de configuration locale et sensibles
+.env
+config/local.php
+*.log
+
+# Dossiers de dépendances ou caches éventuels
+vendor/
+node_modules/
+.DS_Store
