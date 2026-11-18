@@ -176,3 +176,146 @@ th { color: var(--gris); font-weight: 600; font-size: .8rem; }
 @media (min-width: 600px) {
     .btn { width: auto; min-width: 200px; }
 }
+
+/* =========================================================
+   NOUVEAU DESIGN « Poulailler » (surcharge le style de base)
+   ========================================================= */
+:root {
+    --vert: #3f6b2c; --vert-fonce: #2c4d1e; --vert-clair: #e3eed9;
+    --orange: #d9822b; --coq: #d9822b; --rouge: #c8302a; --gris: #66705c;
+    --fond: #eef1e7; --carte: #ffffff; --texte: #1d2a17;
+    --ligne: #dfe4d3; --side: #1b2e14; --rayon: 16px;
+    --ombre: 0 1px 2px rgba(20,35,15,.06), 0 8px 24px rgba(20,35,15,.07);
+}
+html { scroll-behavior: smooth; }
+body { font-family: "Nunito Sans", system-ui, "Segoe UI", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, .brand b { font-family: Fraunces, Georgia, serif; letter-spacing: -.01em; }
+
+/* Mise en page avec menu latéral */
+body.app { display: flex; min-height: 100vh; }
+.page { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 1.5rem clamp(1rem, 3vw, 2.25rem) 2rem; flex: 1; }
+.footer { color: var(--gris); }
+
+.side { width: 250px; flex: none; position: sticky; top: 0; height: 100vh; background: var(--side); color: #e9efdf; padding: 1.4rem .9rem; display: flex; flex-direction: column; gap: .4rem; }
+.brand { display: flex; align-items: center; gap: .65rem; color: #fff; text-decoration: none; font-size: 1.2rem; padding: 0 .6rem 1.1rem; }
+.brand i { width: 38px; height: 38px; border-radius: 11px; background: var(--coq); display: grid; place-items: center; font-style: normal; }
+.brand span { color: #f3c27a; }
+.side nav { display: flex; flex-direction: column; gap: .2rem; }
+.side nav a { display: flex; align-items: center; gap: .75rem; padding: .65rem .8rem; border-radius: 10px; color: #c9d4bb; text-decoration: none; font-weight: 600; margin: 0; font-size: .97rem; transition: background .25s, color .25s, transform .25s; }
+.side nav svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.side nav a:hover { background: rgba(255,255,255,.08); color: #fff; transform: translateX(3px); }
+.side nav a.on { background: var(--vert); color: #fff; }
+.side .pastille { margin-left: auto; font-style: normal; background: var(--coq); }
+.user { margin-top: auto; display: flex; align-items: center; gap: .7rem; padding: .9rem .6rem 0; border-top: 1px solid rgba(255,255,255,.1); font-size: .9rem; }
+.user b { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: #e8b923; color: #2a2000; }
+.user small { display: block; color: #9fae8e; }
+
+/* Cartes, boutons, formulaires */
+.card { border: 1px solid var(--ligne); border-radius: var(--rayon); box-shadow: var(--ombre); padding: 1.4rem; }
+.btn { background: var(--coq); border-radius: 10px; transition: background .25s, transform .25s, box-shadow .25s; }
+.btn:hover { background: #bf6d1a; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(217,130,43,.35); }
+.btn-secondaire { background: var(--vert); }
+.btn-secondaire:hover { background: var(--vert-fonce); box-shadow: none; }
+.btn-mini { background: var(--vert); }
+input, select, textarea { border: 1.5px solid #cfd8c2; border-radius: 10px; transition: border-color .2s, box-shadow .2s; }
+input:focus, select:focus, textarea:focus { outline: 0; border-color: var(--vert); box-shadow: 0 0 0 4px rgba(63,107,44,.15); }
+a:focus-visible, .btn:focus-visible { outline: 3px solid #e8b923; outline-offset: 2px; }
+
+/* Bandeau d'accueil avec la photo */
+.hero { display: grid; grid-template-columns: 1fr 260px; background: linear-gradient(120deg, #1b2e14, #2f5121); border-radius: 20px; overflow: hidden; color: #fff; box-shadow: var(--ombre); margin-bottom: 1.2rem; }
+.hero-txt { padding: 1.9rem 2rem; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+.hero h1 { margin: 0 0 .4rem; font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.15; }
+.hero p { margin: 0; color: #d5e0c8; }
+.hero .btn { margin-top: 1.2rem; }
+.hero img { width: 100%; height: 100%; min-height: 200px; object-fit: cover; display: block; }
+.kpis { margin-bottom: 1.2rem; }
+.stat { background: var(--carte); border: 1px solid var(--ligne); box-shadow: var(--ombre); border-radius: 14px; padding: 1rem; transition: transform .25s; }
+.stat:hover { transform: translateY(-3px); }
+.stat strong { font-family: Fraunces, Georgia, serif; font-size: 1.8rem; color: var(--texte); }
+.stats-3 { grid-template-columns: repeat(3, 1fr); }
+
+/* Listes et tableaux */
+.lot-link { padding: .95rem .6rem; margin: 0 -.6rem; border-radius: 10px; border-bottom: 1px solid var(--ligne); transition: background .2s; }
+.lot-link:hover { background: var(--fond); }
+th { background: transparent; border-bottom: 2px solid var(--ligne); }
+tbody tr:hover td { background: var(--fond); }
+.alerte, .vaccin, .maladie { border-radius: 12px; }
+
+/* Pages de connexion : fond vert + photo en bandeau */
+body.auth { background: linear-gradient(160deg, #1b2e14, #3f6b2c); min-height: 100vh; }
+body.auth .page { align-items: center; }
+body.auth .brand-auth { justify-content: center; padding: 1.6rem 1rem .5rem; }
+body.auth .container { max-width: 460px; padding-top: .8rem; }
+body.auth .container::before { content: ""; display: block; height: 170px; border-radius: 20px 20px 0 0; background: url("../img/ferme.jpg") center 35% / cover no-repeat; }
+body.auth .card { border-radius: 0 0 20px 20px; border-top: 0; box-shadow: 0 20px 50px rgba(0,0,0,.35); }
+body.auth .footer { color: #cfe0c3; }
+
+@media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .hero img { height: 170px; order: -1; } }
+@media (max-width: 760px) {
+    body.app { flex-direction: column; }
+    .side { width: 100%; height: auto; position: static; flex-direction: row; align-items: center; overflow-x: auto; padding: .6rem; gap: .3rem; }
+    .brand { padding: 0 .6rem 0 .2rem; white-space: nowrap; font-size: 1rem; } .brand i { width: 32px; height: 32px; }
+    .side nav { flex-direction: row; } .side nav a { white-space: nowrap; padding: .55rem .7rem; }
+    .user { display: none; }
+    .stats-3 { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+
+/* =========================================================
+   TOUT EN VERT : plus de blanc dans l'application
+   ========================================================= */
+:root { --txt-clair: #f1f7ea; --txt-doux: #bcd2ad; --verre: rgba(14, 36, 9, .55); --verre-2: rgba(255,255,255,.08); --trait: rgba(255,255,255,.16); }
+body.app { background: linear-gradient(160deg, #4f8c38 0%, #356a27 55%, #274d1c 100%) fixed; color: var(--txt-clair); }
+body.app .side { background: #0f1c0a; }
+body.app .footer { color: #dcebd0; }
+body.app h1, body.app h2, body.app h3, body.app label, body.app strong { color: var(--txt-clair); }
+body.app .muted, body.app .sous-titre, body.app .note-methode, body.app .alerte-tete { color: var(--txt-doux); }
+body.app a:not(.btn):not(.btn-mini):not(.lot-link):not(.side a) { color: #ffd28a; }
+
+/* Cartes en vert translucide */
+.card, .hero + .kpis .stat, .stat { background: var(--verre); border: 1px solid var(--trait); box-shadow: 0 10px 30px rgba(0,0,0,.25); backdrop-filter: blur(6px); }
+.stat strong { color: #fff; }
+.stat span { color: var(--txt-doux); }
+.hero { border: 1px solid var(--trait); }
+
+/* Formulaires */
+input, select, textarea { background: rgba(0,0,0,.28); color: var(--txt-clair); border: 1.5px solid rgba(255,255,255,.25); }
+input::placeholder, textarea::placeholder { color: #9db88d; }
+select option { background: #1d3a14; color: #f1f7ea; }
+input:focus, select:focus, textarea:focus { border-color: #8fd16f; box-shadow: 0 0 0 4px rgba(143,209,111,.25); }
+.symptome { background: rgba(0,0,0,.22); border-color: rgba(255,255,255,.22); color: var(--txt-clair); }
+.symptome:has(input:checked) { background: rgba(143,209,111,.25); border-color: #8fd16f; }
+
+/* Tableaux et listes */
+th, td { border-bottom-color: var(--trait); }
+th { color: var(--txt-doux); }
+tbody tr:hover td, .lot-link:hover { background: var(--verre-2); }
+.lot-link { color: var(--txt-clair); border-bottom-color: var(--trait); }
+.op, .maladie { border-color: var(--trait); }
+.maladie { background: rgba(0,0,0,.18); }
+.btn-suppr { color: var(--txt-doux); }
+
+/* Alertes, vaccins, urgences : teintes sur fond vert */
+.alerte, .vaccin { background: var(--verre-2); color: var(--txt-clair); }
+.alerte-critique, .vaccin-retard { background: rgba(200,48,42,.28); }
+.alerte-attention, .vaccin-bientot { background: rgba(217,130,43,.28); }
+.vaccin-fait { background: rgba(143,209,111,.22); }
+.urgence-elevee { background: rgba(200,48,42,.28); }
+.urgence-surveiller { background: rgba(217,130,43,.28); }
+.alert-erreur { background: rgba(200,48,42,.32); color: #ffd6d2; }
+.alert-succes { background: rgba(143,209,111,.25); color: #e3f6d6; }
+.alert-info { background: rgba(217,130,43,.3); color: #ffe6c4; }
+.badge-demo { background: rgba(255,204,128,.22); color: #ffd28a; }
+.pos { color: #a8e58a !important; }
+.neg { color: #ff9a93 !important; }
+.btn-secondaire, .btn-mini { background: #5c9a42; }
+.btn-secondaire:hover, .btn-mini:hover { background: #4a8434; }
+.btn-mini.secondaire { background: rgba(255,255,255,.18); }
+
+/* Pages de connexion / inscription : aussi tout en vert */
+body.auth { color: var(--txt-clair); }
+body.auth h1, body.auth h2, body.auth label, body.auth strong { color: var(--txt-clair); }
+body.auth .muted { color: var(--txt-doux); }
+body.auth .card { background: rgba(14, 36, 9, .78); border: 1px solid var(--trait); border-top: 0; }
+body.auth .card a:not(.btn) { color: #ffd28a; }

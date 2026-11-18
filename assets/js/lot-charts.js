@@ -6,10 +6,11 @@
     var D = window.LOT_DATA;
     var S = D.serie;
     var P = (D.prevision && D.prevision.disponible) ? D.prevision : null;
-    var VERT = '#2e7d32', ORANGE = '#ef6c00', ROUGE = '#c62828', GRIS = '#607d8b';
+    var VERT = '#8fd16f', ORANGE = '#f0a04b', ROUGE = '#ef6a63', GRIS = '#b9ceaa';
 
     Chart.defaults.font.family = 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
-    Chart.defaults.color = '#455a64';
+    Chart.defaults.color = '#dcebd0';
+    Chart.defaults.borderColor = 'rgba(255,255,255,.15)';
 
     function fr(n, d) {
         if (n === null || n === undefined) return '—';
@@ -67,7 +68,7 @@
             label: 'Historique',
             data: histo.concat(pad(f)),
             borderColor: VERT,
-            backgroundColor: pondeuse ? 'rgba(46,125,50,.12)' : VERT,
+            backgroundColor: pondeuse ? 'rgba(143,209,111,.18)' : VERT,
             fill: pondeuse, tension: .25, pointRadius: pondeuse ? 0 : 4, borderWidth: 2, spanGaps: true
         }];
 
