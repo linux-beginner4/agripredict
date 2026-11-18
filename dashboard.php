@@ -22,14 +22,22 @@ if ($elevage) {
 $titre = 'Tableau de bord';
 require __DIR__ . '/includes/header.php';
 ?>
-<div class="card">
-    <h1>Bonjour <?= e($user['nom']) ?> 👋</h1>
-    <?php if ($elevage): ?>
-        <p class="muted">
-            Élevage : <strong><?= e($elevage['nom']) ?></strong>
-            <?= $elevage['localite'] ? '· ' . e($elevage['localite']) : '' ?>
-        </p>
-    <?php endif; ?>
+<?php $enCours = count(array_filter($lots, fn($l) => $l['statut'] === 'en_cours')); ?>
+<section class="hero">
+    <div class="hero-txt">
+        <h1>Bonjour <?= e($user['nom']) ?> 👋</h1>
+        <?php if ($elevage): ?>
+            <p>Élevage : <strong><?= e($elevage['nom']) ?></strong><?= $elevage['localite'] ? ' · ' . e($elevage['localite']) : '' ?></p>
+        <?php endif; ?>
+        <a class="btn" href="lot_nouveau.php">+ Nouveau lot</a>
+    </div>
+    <img src="assets/img/ferme.jpg" alt="Poules, poussins et coq dans une cour de ferme">
+</section>
+
+<div class="stats stats-3 kpis">
+    <div class="stat"><strong><?= (int)$enCours ?></strong><span>lots en cours</span></div>
+    <div class="stat"><strong><?= count($lots) ?></strong><span>lots au total</span></div>
+    <div class="stat"><strong><?= count($alertes) ?></strong><span>alertes récentes</span></div>
 </div>
 
 <?php if ($lots): ?>
